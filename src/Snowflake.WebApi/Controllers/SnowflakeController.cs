@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Snowflake.Data.Client; // 2.0.10
+using Snowflake.WebApi.Models;
 using System.Data;
 using System.Data.Odbc; // 7.0.0
 using System.Text;
@@ -10,6 +11,70 @@ namespace Snowflake.WebApi.Controllers
     [Route("[controller]")]
     public class SnowflakeController : ControllerBase
     {
+        [HttpGet("password/showdatabases")]
+        public IActionResult ShowDatabasesUsingPasswordInConnectionString()
+        {
+            var result = string.Empty;
+
+            using (IDbConnection conn = new SnowflakeDbConnection())
+            {
+                conn.ConnectionString = $"account={Credentials.Snowflake.Account};user={Credentials.Snowflake.User};password={Credentials.Snowflake.Password};db={Credentials.Snowflake.Database};";
+
+                conn.Open();
+
+                IDbCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "show databases;"; // Set up query
+
+                IDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    result = reader.GetString(0); // Display query result in the console
+                }
+
+                conn.Close();
+            }
+
+            return Ok(result);
+        }
+
+        [HttpGet("password/getallstudents")]
+        public IActionResult GetStudents()
+        {
+            var result = new List<Student>();
+
+            using (IDbConnection conn = new SnowflakeDbConnection())
+            {
+                conn.ConnectionString = $"account={Credentials.Snowflake.Account};user={Credentials.Snowflake.User};password={Credentials.Snowflake.Password};db={Credentials.Snowflake.Database};";
+
+                conn.Open();
+
+                IDbCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Student;"; // Query to select all students
+
+                IDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var student = new Student
+                    {
+                        StudentId = reader.GetInt32(reader.GetOrdinal("StudentId".ToUpper())),
+                        FirstName = reader.GetString(reader.GetOrdinal("FirstName".ToUpper())),
+                        LastName = reader.GetString(reader.GetOrdinal("LastName".ToUpper())),
+                        Age = reader.GetInt32(reader.GetOrdinal("Age".ToUpper())),
+                        Address = reader.GetString(reader.GetOrdinal("Address".ToUpper())),
+                        City = reader.GetString(reader.GetOrdinal("City".ToUpper()))
+                    };
+
+                    result.Add(student);
+                }
+
+                conn.Close();
+            }
+
+            return Ok(result);
+        }
+
         // 1. Install NuGet package Snowflake.Data (2.0.10). (2.0.19) was tried, but it threw an exception!!!
         // 2. Implement code below.
         // 3. When you run the application and hit the endpoint, the browser will open an authentication window.
@@ -21,7 +86,7 @@ namespace Snowflake.WebApi.Controllers
             using (IDbConnection conn = new SnowflakeDbConnection())
             {
                 conn.ConnectionString = "account=<account>;user=<user>;authenticator=externalbrowser;";
-                
+
                 conn.Open();
 
                 IDbCommand cmd = conn.CreateCommand();

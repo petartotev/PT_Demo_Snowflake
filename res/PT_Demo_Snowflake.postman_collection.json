@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "423e8bc8-c7a6-4ce1-8d0a-6424d8e0ec2d",
+		"name": "PT_Demo_Snowflake",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23140527"
+	},
+	"item": [
+		{
+			"name": "password/showdatabases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/snowflake/password/showdatabases",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"snowflake",
+						"password",
+						"showdatabases"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/snowflake/password",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"snowflake",
+								"password"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Dec 2023 20:29:55 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "1703620536.294"
+				}
+			]
+		},
+		{
+			"name": "password/getallstudents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/snowflake/password/getallstudents",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"snowflake",
+						"password",
+						"getallstudents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/snowflake/password/getallstudents",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"snowflake",
+								"password",
+								"getallstudents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Dec 2023 21:06:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"studentId\": 1,\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"age\": 21,\n        \"address\": \"123 Main St\",\n        \"city\": \"Cityville\"\n    }\n]"
+				},
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/snowflake/password/getallstudents",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"snowflake",
+								"password",
+								"getallstudents"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Dec 2023 21:09:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "dotnetdriver",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/snowflake/dotnetdriver",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"snowflake",
+						"dotnetdriver"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "500 Internal Server Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/snowflake/dotnetdriver",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"snowflake",
+								"dotnetdriver"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Dec 2023 20:09:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "Error: There was an error related to the SAML Identity Provider account parameter. Contact Snowflake support. SqlState: , VendorCode: 390190, QueryId: \r\n\r\nHEADERS\r\n=======\r\nAccept: */*\r\nConnection: keep-alive\r\nHost: localhost:7064\r\nUser-Agent: PostmanRuntime/7.36.0\r\nAccept-Encoding: gzip, deflate, br\r\nPostman-Token: fc559026-52a4-42ff-9c01-0d1b2cd22c90\r\n"
+				}
+			]
+		},
+		{
+			"name": "odbcdriver",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url-https-app}}/snowflake/odbcdriver",
+					"host": [
+						"{{url-https-app}}"
+					],
+					"path": [
+						"snowflake",
+						"odbcdriver"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "500 Internal Server Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url-https-app}}/snowflake/dotnetdriver",
+							"host": [
+								"{{url-https-app}}"
+							],
+							"path": [
+								"snowflake",
+								"dotnetdriver"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 26 Dec 2023 20:09:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "Error: There was an error related to the SAML Identity Provider account parameter. Contact Snowflake support. SqlState: , VendorCode: 390190, QueryId: \r\n\r\nHEADERS\r\n=======\r\nAccept: */*\r\nConnection: keep-alive\r\nHost: localhost:7064\r\nUser-Agent: PostmanRuntime/7.36.0\r\nAccept-Encoding: gzip, deflate, br\r\nPostman-Token: fc559026-52a4-42ff-9c01-0d1b2cd22c90\r\n"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url-https-app",
+			"value": "https://localhost:7064",
+			"type": "string"
+		},
+		{
+			"key": "url-http-app",
+			"value": "http://localhost:5177",
+			"type": "string"
+		}
+	]
+}
