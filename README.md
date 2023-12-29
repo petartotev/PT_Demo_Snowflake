@@ -169,7 +169,7 @@ Alternatively, you can connect to Snowflake using DBeaver.
 - Driver settings: Download driver files!
 - Connect to a database:
     - Connection:
-        - Host: <orgname>-<account_name>.snowflakecomputing.com
+        - Host: /<orgname/>-/<account_name/>.snowflakecomputing.com
         - Port: 443
         - Database: testdb
         - Warehouse: *you can leave empty*
